@@ -56,10 +56,15 @@ export default defineComponent({
     generateRandomNumber() {
       let number = 0
 
+      if(this.numbers.length == BINGO_UPPER_BOUND){
+        return
+      }
+
       do {
         number = Math.floor(Math.random() * BINGO_UPPER_BOUND) + BINGO_LOWER_BOUND
       } while (this.numbers.includes(number))
 
+      this.numbers = [...new Set(this.numbers)]
       this.numbers.push(number)
       this.saveStateToLocalStorage()
     },
