@@ -1,13 +1,9 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { VitePWA } from 'vite-plugin-pwa'
-import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  build: {
-    outDir: path.join(__dirname, "docs")
-  },
   plugins: [vue(), VitePWA({
     includeAssets: ['bingo.svg', 'favicon.ico', 'robots.txt', 'apple-touch-icon.png'],
     manifest: {
