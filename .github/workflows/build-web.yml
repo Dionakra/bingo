@@ -11,4 +11,5 @@ jobs:
       with:
         username: 'Dionakra'
         reponame: 'bingo'
+        cname: bingo.boix.dev
         token: ${{ secrets.GITHUB_TOKEN }}
