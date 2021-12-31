@@ -13,11 +13,10 @@
         <div
           v-for="number in allNumbers"
           :key="number"
-          class="bg-white border-gray-300 border shadow-md m-2 rounded-md h-20"
+          class="bg-white border-gray-300 border shadow-md my-1 rounded-full aspect-square h-20"
           :class="{
             'bg-gray-200': !numbers.includes(number),
-            'bg-yellow-100 font-bold': numbers.length > 0 && numbers[numbers.length - 1] == number,
-            'gap-x-10': number % 5 == 0 && number % 10 != 0
+            'bg-yellow-100 font-bold': numbers.length > 0 && numbers[numbers.length - 1] == number
           }"
         >
           <p v-if="numbers.includes(number)" class="text-center h-full text-4xl text my-4">{{ number }}</p>
