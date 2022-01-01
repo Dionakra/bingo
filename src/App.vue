@@ -47,23 +47,19 @@ export default defineComponent({
   },
   created() {
     if (localStorage.board) {
-      console.log(localStorage.board)
       this.numbers = localStorage.board.split(',').map((x) => parseInt(x))
     }
   },
   methods: {
     generateRandomNumber() {
-      let number = 0
-
       if (this.numbers.length == BINGO_UPPER_BOUND) {
         return
       }
 
-      do {
-        number = Math.floor(Math.random() * BINGO_UPPER_BOUND) + BINGO_LOWER_BOUND
-      } while (this.numbers.includes(number))
-
-      this.numbers = [...new Set(this.numbers)]
+      const possibleNumbers = this.allNumbers.filter(x => !this.numbers.includes(x))
+      const rng = Math.floor(Math.random() * possibleNumbers.length)
+      const number = possibleNumbers[rng]
+      
       this.numbers.push(number)
       this.saveStateToLocalStorage()
     },
